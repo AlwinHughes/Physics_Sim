@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections.Generic;
 
 namespace Physics_Sim
 {
@@ -146,7 +147,16 @@ namespace Physics_Sim
                 if(i != null)
                     spriteBatch.Draw(i.texture, i.pos, null, null,new Vector2(0,0),(float)i.Theta, null, Color.White,SpriteEffects.None,1);
             }
-            //new Rectangle((int)i.pos.X - i.width, (int)i.pos.Y - i.height, (int)i.pos.X, (int)i.pos.Y);
+            
+            foreach(List<PathDot> i in current_scrren.drawPath())
+            {
+                
+                foreach (PathDot p in i)
+                {
+                    if (p != null)
+                        spriteBatch.Draw(p.texture, p.pos, Color.White);
+                }
+            }
 
             spriteBatch.End();
             base.Draw(gameTime);

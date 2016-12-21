@@ -11,6 +11,7 @@ namespace Physics_Sim
         public GraphicsDevice graphics;
         public Object[] objects;
         public Instrument[] instruments;
+        public List<List<PathDot>> paths = new List<List<PathDot>>();
         public BaseScreen() { }
 
         public BaseScreen(int id, GraphicsDevice graphics)
@@ -21,7 +22,17 @@ namespace Physics_Sim
 
         public virtual void onLoad() { Console.WriteLine("onLoad not overriden: " + Convert.ToString(id)); }
 
-        public virtual void onClose() { Console.WriteLine("onClose not overriden: " + Convert.ToString(id)); }
+        public virtual void onClose()
+        {
+            objects = null;
+            instruments = null;
+            paths.Clear();
+        }
+
+        public virtual List<List<PathDot>> drawPath()
+        {
+            return paths;
+        }
 
         public virtual void phyUpdate()
         {

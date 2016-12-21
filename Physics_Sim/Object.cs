@@ -16,7 +16,7 @@ namespace Physics_Sim
         public Vector2 acc = new Vector2();
         public int width;
         public int height;
-        Color[] color;
+        public Color[] color;
         public float mass = 0;
         bool usemass = false;
         public Double KE;
@@ -26,6 +26,9 @@ namespace Physics_Sim
         public bool elastic = true;
         public bool usedgravity = false;
         public bool isCOM = false;
+        public int id;
+        public bool track = false;
+        public int tick_count = 0;
 
         public Object() { }
 
@@ -40,7 +43,20 @@ namespace Physics_Sim
             this.height = height;
             color = new Color[width * height];
         }
-        // constructure with texture not already set
+
+        // constructure with texture not already set with id
+        public Object(Vector2 pos, Vector2 vel, Vector2 acc, int width, int height, int id)
+        {
+            this.id = id;
+            this.pos = pos;
+            this.vel = vel;
+            this.acc = acc;
+            this.width = width;
+            this.height = height;
+            color = new Color[width * height];
+        }
+
+        // no texture and no id
         public Object(Vector2 pos, Vector2 vel, Vector2 acc, int width, int height)
         {
             this.pos = pos;

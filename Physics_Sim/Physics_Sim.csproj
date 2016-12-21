@@ -45,6 +45,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Instrument.cs" />
     <Compile Include="Object.cs" />
+    <Compile Include="PathDot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmallPlanetSuvat.cs" />
